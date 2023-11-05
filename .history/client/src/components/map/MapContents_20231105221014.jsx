@@ -118,8 +118,11 @@ const MapContents = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-
+          <Marker position={[13, 100]}>
+            <Popup>555</Popup>
+          </Marker>
           {/* EVENTS */}
+
           <LocationMarker />
 
           {/* DATA */}

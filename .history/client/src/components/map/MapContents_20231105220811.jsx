@@ -118,18 +118,18 @@ const MapContents = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-
+          <Marker position={[13, 100]}>
+            <Popup>555</Popup>
+          </Marker>
           {/* EVENTS */}
+
           <LocationMarker />
 
           {/* DATA */}
+
           {data
             ? data.map((item, index) => (
-                <Marker
-                  eventHandlers={{ click: () => flyto(item.lat, item.lng) }}
-                  key={index}
-                  position={[item.lat, item.lng]}
-                >
+                <Marker key={index} position={[item.lat, item.lng]}>
                   <Popup>
                     {item.name}
                     <br />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import L from "leaflet";
 
 import {
@@ -12,8 +12,6 @@ import {
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import { FloatButton } from "antd";
-import { ZoomInOutlined } from "@ant-design/icons";
-
 import "leaflet/dist/leaflet.css";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -35,8 +33,6 @@ const MapContents = () => {
     lat: 0,
     lng: 0,
   });
-
-  const mapRef = useRef(null);
 
   function toggleTable() {
     setShowTable(!showTable);
@@ -100,16 +96,10 @@ const MapContents = () => {
 
   console.log(form);
 
-  const flyto = (lat, lng) => {
-    console.log(lat, lng);
-    mapRef.current.flyTo([lat, lng], 10);
-  };
-
   return (
     <div className="row">
       <div className="col-md-9">
         <MapContainer
-          ref={mapRef}
           style={{ height: "100vh", zIndex: 1 }}
           center={[13, 100]}
           zoom={5}
@@ -118,18 +108,18 @@ const MapContents = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-
+          <Marker position={[13, 100]}>
+            <Popup>555</Popup>
+          </Marker>
           {/* EVENTS */}
+
           <LocationMarker />
 
           {/* DATA */}
+
           {data
             ? data.map((item, index) => (
-                <Marker
-                  eventHandlers={{ click: () => flyto(item.lat, item.lng) }}
-                  key={index}
-                  position={[item.lat, item.lng]}
-                >
+                <Marker key={index} position={[item.lat, item.lng]}>
                   <Popup>
                     {item.name}
                     <br />
@@ -197,7 +187,7 @@ const MapContents = () => {
           slideAnimation ? "slide-up" : ""
         }`}
       >
-        <table className="table">
+        <table class="table">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -216,12 +206,6 @@ const MapContents = () => {
                 <td>{item.detail}</td>
                 <td>{item.lat}</td>
                 <td>{item.lng}</td>
-                <td>
-                  <ZoomInOutlined
-                    onClick={() => flyto(item.lat, item.lng)}
-                    style={{ cursor: "pointer" }}
-                  />
-                </td>
               </tr>
             ))}
           </tbody>
