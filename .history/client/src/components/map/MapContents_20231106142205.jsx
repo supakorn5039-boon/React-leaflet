@@ -117,9 +117,8 @@ const MapContents = () => {
   const handleRemove = (id) => {
     console.log(id);
     remove(id)
-      .then((res) => {
+      .then((res.data.id) => {
         console.log(res);
-        loadData();
       })
       .catch((err) => [console.log(err)]);
   };

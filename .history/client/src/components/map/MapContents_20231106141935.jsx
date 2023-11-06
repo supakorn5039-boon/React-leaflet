@@ -114,16 +114,6 @@ const MapContents = () => {
     mapRef.current.flyTo([lat, lng], 10);
   };
 
-  const handleRemove = (id) => {
-    console.log(id);
-    remove(id)
-      .then((res) => {
-        console.log(res);
-        loadData();
-      })
-      .catch((err) => [console.log(err)]);
-  };
-
   return (
     <div className="row">
       <div className="col-md-9">
@@ -271,7 +261,7 @@ const MapContents = () => {
                     style={{ cursor: "pointer" }}
                   />{" "}
                   <DeleteOutlined
-                    onClick={() => handleRemove(item._id)}
+                  onClick={()handleRemove(item._id)}
                     style={{
                       color: "red",
                       paddingLeft: "20px",

@@ -8,6 +8,6 @@ const { upload } = require("../Middleware/upload");
 //http://localhost:5001/api/travel
 router.get("/travel", list);
 router.post("/travel", upload, create);
-router.delete("/travel/:id", remove);
+router.delete("/travel", remove);
 
 module.exports = router;

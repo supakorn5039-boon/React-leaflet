@@ -114,16 +114,6 @@ const MapContents = () => {
     mapRef.current.flyTo([lat, lng], 10);
   };
 
-  const handleRemove = (id) => {
-    console.log(id);
-    remove(id)
-      .then((res) => {
-        console.log(res);
-        loadData();
-      })
-      .catch((err) => [console.log(err)]);
-  };
-
   return (
     <div className="row">
       <div className="col-md-9">
@@ -244,7 +234,7 @@ const MapContents = () => {
               <th scope="col">file</th>
               <th scope="col">lat</th>
               <th scope="col">lng</th>
-              <th scope="col">Action</th>
+              <th scope="col">go to</th>
             </tr>
           </thead>
           <tbody>
@@ -269,15 +259,8 @@ const MapContents = () => {
                   <ZoomInOutlined
                     onClick={() => flyto(item.lat, item.lng)}
                     style={{ cursor: "pointer" }}
-                  />{" "}
-                  <DeleteOutlined
-                    onClick={() => handleRemove(item._id)}
-                    style={{
-                      color: "red",
-                      paddingLeft: "20px",
-                      cursor: "pointer",
-                    }}
                   />
+                  <DeleteOutlined style={{ color: "red" }} />
                 </td>
               </tr>
             ))}

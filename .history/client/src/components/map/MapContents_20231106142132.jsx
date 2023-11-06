@@ -117,11 +117,10 @@ const MapContents = () => {
   const handleRemove = (id) => {
     console.log(id);
     remove(id)
-      .then((res) => {
-        console.log(res);
-        loadData();
-      })
-      .catch((err) => [console.log(err)]);
+    .then((res.body.id) => {
+      console.log(res)
+    })
+    .catch()
   };
 
   return (

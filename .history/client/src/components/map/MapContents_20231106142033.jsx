@@ -114,15 +114,7 @@ const MapContents = () => {
     mapRef.current.flyTo([lat, lng], 10);
   };
 
-  const handleRemove = (id) => {
-    console.log(id);
-    remove(id)
-      .then((res) => {
-        console.log(res);
-        loadData();
-      })
-      .catch((err) => [console.log(err)]);
-  };
+  const handleRemove = (id) => {};
 
   return (
     <div className="row">

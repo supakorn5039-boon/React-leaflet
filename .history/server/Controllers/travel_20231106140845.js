@@ -34,7 +34,7 @@ exports.remove = async (req, res) => {
   try {
     // code
     const id = req.params.id;
-    const removed = await Travel.findOneAndDelete({ _id: id }).exec();
+    const removed = await Product.findOneAndDelete({ _id: id }).exec();
     res.send(removed);
   } catch (err) {
     // error

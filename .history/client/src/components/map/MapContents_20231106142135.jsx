@@ -119,9 +119,8 @@ const MapContents = () => {
     remove(id)
       .then((res) => {
         console.log(res);
-        loadData();
       })
-      .catch((err) => [console.log(err)]);
+      .catch();
   };
 
   return (
